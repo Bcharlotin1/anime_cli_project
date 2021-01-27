@@ -1,6 +1,8 @@
-require "anime_cli_project/version"
+# require "pry"
+require 'bundler/setup'
+Bundler.require(:default)
+# require "anime_cli_project/version"
+# require_relative "./anime_cli_project"
+# require_relative "./concern"
 
-module AnimeCliProject
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_all "lib"
