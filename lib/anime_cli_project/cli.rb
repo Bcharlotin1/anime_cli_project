@@ -12,7 +12,8 @@ class Cli
           input = gets.strip
   
           anime = Api.search_by_name(input)
-  
+         
+         
             if anime
     
                 title_info(anime)
@@ -32,30 +33,33 @@ class Cli
 
                     if input == "more info"
                         more_information(anime)
+
+                        until input == "back" || input == "exit"
+                            puts
+                            puts "If you would like a list of recommended animes based off your search enter 'recommendations'"
+                            puts
+                            puts "If you would like to search up a new anime enter 'back' twice. "
+                            puts
+                            puts "To quit, type 'exit'."
+                            puts
+                            print "Enter: "
+                            input = gets.strip
+                            
+                            if input == "recommendations"
+                                recommendations(anime.id)
+                            end
+
+                        end
+
                     end
                 end
               
             end
 
-            
-            #   puts "To quit, type 'exit'."
-            # case input 
-            # when "title"
-            #     title_info #if the put more info with out titile? 
-            # when "more info"
-            #         more_information 
-            # end
-    
-            # if input == "title"
-            #   title_info
-            #   @status = input
-            # end
-    
-            #   if input == "more info"
-            #     more_information(@status)
-            #   end
         end
     end
+        
+      
        
         
       
@@ -70,7 +74,7 @@ class Cli
         puts
       end
   
-      def more_information(arg) 
+      def more_information(arg)
         puts
         puts "Type: #{arg.type}" 
         puts
@@ -83,20 +87,13 @@ class Cli
         puts "Start Date: #{arg.start_date}"
         puts
         puts "End Date: #{arg.end_date}"
-        puts
+        puts 
+      end
 
-        # binding.pry
-        # more = nil
-        # Anime.all.each do |instance|
-  
-        #   if instance.title = arg
-  
-        #   more =instance.more_info
-        #   end
-  
-        # end
-  
-    #   puts more
+      def recommendations(arg)
+        puts
+        puts Api.recos(arg)
+        puts
       end
         
   
