@@ -1,5 +1,5 @@
 class Cli
-    attr_accessor :new_search
+    
   
     def run
       puts "Welcome to the Anime library!"
@@ -38,7 +38,7 @@ class Cli
                             puts
                             puts "If you would like a list of recommended animes based off your search enter 'recommendations'"
                             puts
-                            puts "If you would like to search up a new anime enter 'back' twice. "
+                            puts "If you would like to search up a new anime enter 'back'. "
                             puts
                             puts "To quit, type 'exit'."
                             puts
@@ -60,10 +60,6 @@ class Cli
     end
         
       
-       
-        
-      
-  
       def title_info(arg)
         puts
         puts "Title: #{arg.title}" 
@@ -90,7 +86,13 @@ class Cli
         puts 
       end
 
-      def recommendations(arg)
+    #   def recommendations(arg)
+    #     puts
+    #     puts Api.recos(arg)
+    #     puts
+    #   end
+
+    def recommendations(arg)
         puts
         puts Api.recos(arg)
         puts
