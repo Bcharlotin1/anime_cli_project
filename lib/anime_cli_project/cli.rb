@@ -47,6 +47,14 @@ class Cli
                             
                             if input == "recommendations"
                                 recommendations(anime.id)
+                            
+                                puts "If you would like to search up a new anime enter 'back'. "
+                                puts
+                                puts "To quit, type 'exit'."
+                                puts
+                                print "Enter: "
+
+                                input = gets.strip
                             end
 
                         end
@@ -60,9 +68,9 @@ class Cli
     end
         
       
-      def title_info(arg)
+      def title_info(arg) #instance method
         puts
-        puts "Title: #{arg.title}" 
+        puts "Title: #{arg.title}" #interpolation 
         puts
         puts "ID: #{arg.id}" 
         puts
@@ -86,17 +94,12 @@ class Cli
         puts 
       end
 
-    #   def recommendations(arg)
-    #     puts
-    #     puts Api.recos(arg)
-    #     puts
-    #   end
 
     def recommendations(arg)
         puts
         puts Api.recos(arg)
         puts
-      end
+    end
         
   
 end

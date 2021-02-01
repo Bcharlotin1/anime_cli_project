@@ -39,6 +39,7 @@ class Api
             
             anime_recomedation << result["title"]
         end
+
       anime_recomedation
 
     end

@@ -1,5 +1,5 @@
 class Anime
-    @@all =[]
+    @@all =[] #class variable
     
     def initialize(anime_hash)
       anime_hash.each do |key, value|
