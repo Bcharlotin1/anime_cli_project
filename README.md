@@ -1,8 +1,7 @@
 # AnimeCliProject
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/anime_cli_project`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to the Anime Library! This gem uses an Anime API, specifically, the one by Jikan,  to create a command-line interface(CLI). This gem acts as a library and will provide the user information for a particular anime of their choice, and recommendations based on their search. Put your Ruby code in the file `lib/anime_cli_project`. To experiment with that code, run `ruby bin/anime_cli`in terminal for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -22,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+ Run the anime_cli file in your terminal in your free source-code editor. Once you run the file, the CLI,  you will be prompted with things you can ask for while using the CLI. 
 
 ## Development
 

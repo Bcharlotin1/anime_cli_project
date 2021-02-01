@@ -9,11 +9,23 @@ class Anime
       save
     end
   
+    
     def save
-      @@all << self
+        if @@all.length > 0
+            Anime.all.each do |instance|
+               
+                if instance.title != @title
+                    @@all << self
+                end
+            end
+        else
+            @@all << self
+        end
+      
     end
+
+
     def self.all
       @@all
     end
-  
 end

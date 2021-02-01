@@ -10,62 +10,90 @@ class Cli
           puts
           print "Enter Anime: " 
           input = gets.strip
-  
-          anime = Api.search_by_name(input)
-         
-         
-            if anime
-    
-                title_info(anime)
+     
+                anime = Api.search_by_name(input)
+            
+                if anime 
+        
+                    title_info(anime)
 
-                until input == "back" || input == "exit"
-                
-                    puts
-                    puts "If you would like more information on the anime please enter 'more info'."
-                    puts
-                    puts "If you would like to search up a new anime enter 'back'. "
-                    puts
-                    puts "To quit, type 'exit'."
-                    puts
-                    print "Enter: "
-    
-                    input = gets.strip
+                    until input == "search" || input == "exit"
+                    
+                        puts
+                        puts "If you would like more information on the anime please enter 'more info'."
+                        puts
+                        puts "If you would like to search up a new anime enter 'search'. "
+                        puts
+                        puts "To quit, type 'exit'."
+                        puts
+                        print "Enter: "
+        
+                        input = gets.strip
 
-                    if input == "more info"
-                        more_information(anime)
+                        if input == "more info"
+                            more_information(anime)
 
-                        until input == "back" || input == "exit"
-                            puts
-                            puts "If you would like a list of recommended animes based off your search enter 'recommendations'"
-                            puts
-                            puts "If you would like to search up a new anime enter 'back'. "
-                            puts
-                            puts "To quit, type 'exit'."
-                            puts
-                            print "Enter: "
-                            input = gets.strip
-                            
-                            if input == "recommendations"
-                                recommendations(anime.id)
-                            
-                                puts "If you would like to search up a new anime enter 'back'. "
+                            until input == "search" || input == "exit"
+                                puts
+                                puts "If you would like a list of recommended animes based off your search enter 'recommendations'"
+                                puts
+                                puts "If you would like to search up a new anime enter 'search'. "
                                 puts
                                 puts "To quit, type 'exit'."
                                 puts
                                 print "Enter: "
+                                input = gets.strip
+                                
+                                if input == "recommendations" 
+                                    recommendations(anime.id)
+                                    puts
+                                    puts "If you would like to search up a new anime enter 'search'. "
+                                    puts
+                                    puts "To quit, type 'exit'."
+                                    puts
+                                    print "Enter: "
 
+                                    input = gets.strip
+                                else
+                                    until input == "search" || input == "back to recommendations" || input == "exit"
+                                        puts " Invalide input. Please input 'back to recommendations' to go back for more information or 'search' if you want start a new search "
+                                        puts
+                                        puts "To quit, type 'exit'."
+                                        puts
+                                        print "Enter: "
+                                        input = gets.strip
+                                    end
+                                end
+
+                            end
+                        else
+                            until input == "search" || input == "back to more info" || input == "exit"
+                                puts " Invalide input. Please input 'back to more info' to go back for more information or 'search' if you want start a new search "
+                                puts
+                                puts "To quit, type 'exit'."
+                                puts
+                                print "Enter: "
                                 input = gets.strip
                             end
 
                         end
-
+                    end
+                else
+                    until input == "search" || input == "exit"
+                        puts
+                        puts "Our database doses not have records for the anime you are searching for"
+                        puts
+                        puts "Please enter 'search' to search for a new anime"
+                        puts
+                        puts "To quit, type 'exit'."
+                        print "Enter: "
+                        input = gets.strip
                     end
                 end
-              
-            end
-
+        
         end
     end
+
         
       
       def title_info(arg) #instance method

@@ -1,31 +1,35 @@
 class Api
     def self.search_by_name(input)
-      anime_name = input.gsub(" ", "_")
-      data = HTTParty.get("https://api.jikan.moe/v3/search/anime?q=#{anime_name}")
-      anime = nil
- 
-      data["results"].each do |result|
+        
+            anime_name = input.gsub(" ", "_")
+            data = HTTParty.get("https://api.jikan.moe/v3/search/anime?q=#{anime_name}")
+            anime = nil
     
-        if result["title"] == input.split.map(&:capitalize).join(' ')
-         
-          anime_hash = {
-            title: result["title"],
-            id: result["mal_id"],
-            synopsis: result["synopsis"], 
-            type: result["type"], 
-            score: result["score"], 
-            airing: result["airing"], 
-            rated: result["rated"], 
-            start_date: result["start_date"], 
-            end_date: result["end_date"] 
-  
-            }
-            anime = Anime.new(anime_hash)
-         
-        end
-          
-      end 
-      anime
+            if !data["status"]
+
+                data["results"].each do |result|
+                
+                    if result["title"] == input.split.map{ |x| x.capitalize}.join(' ')
+                    
+                    anime_hash = {
+                        title: result["title"],
+                        id: result["mal_id"],
+                        synopsis: result["synopsis"], 
+                        type: result["type"], 
+                        score: result["score"], 
+                        airing: result["airing"], 
+                        rated: result["rated"], 
+                        start_date: result["start_date"], 
+                        end_date: result["end_date"] 
+            
+                        }
+                        anime = Anime.new(anime_hash)
+                    
+                    end
+                    
+                end 
+                anime
+            end
     end
   
     def self.recos(input) 
