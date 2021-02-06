@@ -10,18 +10,6 @@ class Anime
       save
     end
   
-    # def self.find_or_create(anime_hash)
-    #     if @@all.length > 0
-    #         Anime.all.each do |instance|
-    #             if instance.title == anime_hash["title"]
-    #                 instance
-    #             end
-
-    #         end
-    #     else
-    #         Anime.new(anime_hash)
-    #     end
-    # end
     
     def save
         if @@all.length > 0
@@ -32,7 +20,6 @@ class Anime
                 else
                     @@all << self
                 end
-                binding.pry
         else
             @@all << self
         end
