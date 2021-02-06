@@ -23,6 +23,7 @@ class Api
                         end_date: result["end_date"] 
             
                         }
+                        
                         anime = Anime.new(anime_hash)
                     
                     end
@@ -30,6 +31,7 @@ class Api
                 end 
                 anime
             end
+            
     end
   
     def self.recos(input) 

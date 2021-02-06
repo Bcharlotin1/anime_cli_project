@@ -12,7 +12,7 @@ class Cli
           input = gets.strip
      
                 anime = Api.search_by_name(input)
-            
+             
                 if anime 
         
                     title_info(anime)
@@ -96,7 +96,7 @@ class Cli
 
         
       
-      def title_info(arg) #instance method
+      def title_info(arg)
         puts
         puts "Title: #{arg.title}" #interpolation 
         puts
