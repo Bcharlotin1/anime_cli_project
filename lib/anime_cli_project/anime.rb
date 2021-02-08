@@ -7,23 +7,27 @@ class Anime
         self.class.attr_accessor(key)
         self.send("#{key}=", value) 
       end
-      save
+      find_or_create
     end
-  
     
-    def save
+    def find_or_create
+
         if @@all.length > 0
 
-            x = Anime.all.find {|instance| instance.title == @title}
-                if x 
-                    x
+            anime_instance = Anime.all.find {|instance| instance.title == @title}
+                if anime_instance  
+                    anime_instance 
                 else
-                    @@all << self
+                    save
                 end
         else
-            @@all << self
+           save
         end
+    end
     
+    def save
+     @@all << self
+     binding.pry
     end
 
     def self.all
